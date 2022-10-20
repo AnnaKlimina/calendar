@@ -1,0 +1,43 @@
+.input-container{
+    position: relative;
+    width: fit-content;
+}
+
+.input-container__input{
+    background-color: var(--input-background);
+    border: 2px solid var(--input-border);
+    border-radius: 5px;
+    height: calc(var(--font-size) + 7px);
+    padding: 4px 7px 2px;
+    letter-spacing: 1px;
+    color: var(--input-font-color);
+    font-weight: 600;
+}
+
+.input-container__input:focus-visible{
+    color: var(--font-color);
+    background-color:var(--input-focus-background);
+    border: 2px solid var(--input-focus-border);
+    outline: transparent;
+    
+}
+
+.input-container::before{
+    content: "Date check";
+    color: #8ab689;
+    font-style: italic;
+    top: -7px;
+    left: 5px;
+    background: white;
+    padding: 0 2px;
+    display: block;
+    position: absolute;
+    transition-property: color, transform;
+    transition-duration: 0.5s;
+}
+
+.input-container:focus-within:before{
+    color: transparent;
+    background: transparent;
+    transform: translateY(-15px);
+}

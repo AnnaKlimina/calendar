@@ -1,0 +1,21 @@
+.page{
+        height: 100vh;
+    display: flex;
+    background-color: var(--page-background);
+    font-size: var(--font-size);
+    font-weight: 600;
+    font-family:sans-serif;
+    color: var(--font-color);
+}
+
+.page__header{
+     position: absolute;
+    left: 10vw;
+    font-style: italic;
+    text-shadow: 6px 7px 5px #00000036;
+}
+
+.page__header::before{
+    content: "\27A4";
+    padding-right: 5px;
+}

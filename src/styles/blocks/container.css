@@ -1,0 +1,13 @@
+.container{
+    background-color: white;
+    height: fit-content;
+    margin: auto;
+    padding: 20px 60px 40px;
+    border: 5px solid var(--block-border);
+    border-radius: 20px;
+    width: 50vw;
+}
+
+.container__header{
+    margin-bottom: 30px;
+}

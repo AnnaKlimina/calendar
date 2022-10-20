@@ -1,0 +1,13 @@
+body{
+    --page-background: #c1ffb88c;
+    --block-border: #64c3448c;
+    --input-focus-background: #aade984d;
+    --input-focus-border:#356835b5;
+    --input-background: #aade981c;
+    --input-border:#86cd86b5;
+    --font-color: #4d7240;
+    --input-font-color: #74a572ba;
+
+    --error-color: #da3232;
+    --warning-color: #ca9600;
+}
