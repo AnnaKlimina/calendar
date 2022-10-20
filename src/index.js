@@ -206,7 +206,7 @@ class Container extends React.Component{
                     return;
             }   
             
-            this.timerID = setInterval(()=>{this.handleRightData(value, date); console.log("tick")}, 1000);     
+            this.timerID = setInterval(()=>{this.handleRightData(value, date)}, 1000);     
         }
         this.setState({value: value});
     }
