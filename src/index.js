@@ -51,7 +51,7 @@ class Container extends React.Component{
         return value;
     }
 
-    handleRightData(value, date){
+    handleRightDate(value, date){
         let currentDate = new Date();
         if((date - currentDate)/(24*3600*1000) <= 0){
             clearInterval(this.timerID);
@@ -70,18 +70,6 @@ class Container extends React.Component{
 
             if (years > 0 && (months < 0 || (months === 0 && dates <= 0))){
                 years -= 1;
-            }
-            if(years > 10 ||
-            (years === 10 && months > 0) ||
-            (years === 10 && months === 0 && dates > 0)){
-                this.setState(
-                        {
-                        message: [`До введенной даты более 10 лет. Дата не должна быть позже
-                         ${currentDate.toLocaleDateString().slice(2,-4) + (currentDate.getFullYear()+10)}.`], 
-                        warning: true,
-                        value:value
-                        });
-                    return;
             }
 
             let days = (years? Math.floor((date - new Date(currentDate.getFullYear() + years,currentDate.getMonth(),currentDate.getDate()))/(24*3600*1000)) - 1:
@@ -204,9 +192,28 @@ class Container extends React.Component{
                         value:value
                         });
                     return;
-            }   
-            
-            this.timerID = setInterval(()=>{this.handleRightData(value, date)}, 1000);     
+            }  
+            let years = date.getFullYear() - currentDate.getFullYear();
+            let months = date.getMonth() - currentDate.getMonth();
+            let dates = date.getDate() - currentDate.getDate();
+
+            if (years > 0 && (months < 0 || (months === 0 && dates <= 0))){
+                years -= 1;
+            }
+            if(years > 10 ||
+            (years === 10 && months > 0) ||
+            (years === 10 && months === 0 && dates > 0)){
+                this.setState(
+                        {
+                        message: [`До введенной даты более 10 лет. Дата не должна быть позже
+                         ${currentDate.toLocaleDateString().slice(0,-4) + (currentDate.getFullYear()+10)}.`], 
+                        warning: true,
+                        value:value
+                        });
+                    return;
+            } 
+            this.handleRightDate(value, date);
+            this.timerID = setInterval(()=>{this.handleRightDate(value, date)}, 1000);     
         }
         this.setState({value: value});
     }
