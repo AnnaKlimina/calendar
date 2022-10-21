@@ -200,9 +200,7 @@ class Container extends React.Component{
             if (years > 0 && (months < 0 || (months === 0 && dates <= 0))){
                 years -= 1;
             }
-            if(years > 10 ||
-            (years === 10 && months > 0) ||
-            (years === 10 && months === 0 && dates > 0)){
+            if(years >= 10){
                 this.setState(
                         {
                         message: [`До введенной даты более 10 лет. Дата не должна быть позже
